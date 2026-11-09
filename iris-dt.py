@@ -10,6 +10,11 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 
 import matplotlib.pyplot as plt
 import seaborn as sns
+import dagshub
+
+dagshub.init(repo_owner='samarjeetsinghpatil93-jpg',
+             repo_name='mlflow-dagshub-demo',
+             mlflow=True)
 
 # mlflow.set_tracking_uri("http://127.0.0.1:5000")
 
@@ -30,7 +35,7 @@ n_estimators = 10
 mlflow.set_experiment("iris_dt")
 
 # Apply mlflow to train
-with mlflow.start_run(run_name = 'demo-experiment'):
+with mlflow.start_run():
     mlflow.log_param("max_depth", max_depth)
     mlflow.log_param("n_estimators", n_estimators)
 
